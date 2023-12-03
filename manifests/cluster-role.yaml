@@ -1,0 +1,15 @@
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: mad-controller
+rules:
+- apiGroups:
+  - mad.instrumentation.k8s-sigs.io
+  resources:
+  - metricsanomalydetectorresources
+  - metricsanomalydetectorresources/status
+  verbs:
+  - '*'

@@ -1,5 +1,5 @@
 /*
-Copyright 2017 The Kubernetes Authors.
+Copyright 2023 The Kubernetes mad Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ import (
 	"context"
 	"os"
 	"os/signal"
+	"syscall"
 )
 
 var onlyOneSignalHandler = make(chan struct{})
@@ -28,16 +29,16 @@ var onlyOneSignalHandler = make(chan struct{})
 // which is cancelled on one of these signals. If a second signal is caught,
 // the program is terminated with exit code 1.
 func SetupSignalHandler() context.Context {
-	close(onlyOneSignalHandler) // panics when called twice
+	close(onlyOneSignalHandler)
 
 	c := make(chan os.Signal, 2)
 	ctx, cancel := context.WithCancel(context.Background())
-	signal.Notify(c, shutdownSignals...)
+	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 	go func() {
 		<-c
 		cancel()
 		<-c
-		os.Exit(1) // second signal. Exit directly.
+		os.Exit(1) // Second signal. Exit directly.
 	}()
 
 	return ctx

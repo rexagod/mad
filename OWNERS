@@ -1,13 +1,7 @@
-# See the OWNERS docs at https://go.k8s.io/owners
 
 approvers:
-  - deads2k
-  - sttts
-  - munnerz
+  - sig-instrumentation-approvers
 reviewers:
-  - deads2k
-  - sttts
-  - munnerz
-  - nikhita
+  - sig-instrumentation-members
 labels:
-  - sig/api-machinery
+  - sig/instrumentation
