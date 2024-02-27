@@ -1,4 +1,6 @@
 # [WIP] Metrics Anomaly Detector (MAD)
+[![Go Report Card](https://goreportcard.com/badge/github.com/rexagod/mad)](https://goreportcard.com/report/github.com/rexagod/mad)
+[![API Reference](https://pkg.go.dev/badge/github.com/rexagod/mad.svg)](https://pkg.go.dev/github.com/rexagod/mad)
 
 ## Description
 
