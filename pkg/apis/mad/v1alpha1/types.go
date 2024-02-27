@@ -26,6 +26,7 @@ import (
 // +kubebuilder:rbac:groups=mad.instrumentation.k8s-sigs.io,resources=metricsanomalydetectorresources;metricsanomalydetectorresources/status,verbs=*
 
 // MetricsAnomalyDetectorResource is a specification for a MetricsAnomalyDetectorResource resource.
+// +kubebuilder:resource:shortName=madresource
 // +kubebuilder:subresource:status
 type MetricsAnomalyDetectorResource struct {
 	metav1.TypeMeta   `json:",inline"`

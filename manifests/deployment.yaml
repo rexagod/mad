@@ -22,7 +22,9 @@ spec:
       automountServiceAccountToken: true
       containers:
       - name: mad-controller
-        image: "mad:0.0.1"
+        image: "mad:draft"
+        ports:
+          - containerPort: 8080
         imagePullPolicy: Never
         env:
         - name: NAMESPACE

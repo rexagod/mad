@@ -13,6 +13,8 @@ spec:
     kind: MetricsAnomalyDetectorResource
     listKind: MetricsAnomalyDetectorResourceList
     plural: metricsanomalydetectorresources
+    shortNames:
+    - madresource
     singular: metricsanomalydetectorresource
   scope: Namespaced
   versions:

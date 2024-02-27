@@ -21,6 +21,7 @@ import (
 	"os"
 
 	"github.com/rexagod/mad/internal"
+	"github.com/rexagod/mad/internal/server"
 	v "github.com/rexagod/mad/internal/version"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/clientcmd"
@@ -69,6 +70,9 @@ func main() {
 		logger.Error(err, "Error building mad clientset")
 		klog.FlushAndExit(klog.ExitFlushTimeout, 1)
 	}
+
+	// Start the endpoint server.
+	go server.Run(madClientset, logger, ctx)
 
 	// Start the controller.
 	if err = internal.NewController(ctx, kubeClientset, madClientset).Run(ctx, workers); err != nil {

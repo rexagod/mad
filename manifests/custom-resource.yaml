@@ -6,7 +6,5 @@ metadata:
   name: metrics-anomaly-detector-resource-sample
   namespace: default
 spec:
-  bufferSize: 200
   healthcheckEndpoints:
     - "https://kubernetes.default/readyz"
-  queryInterval: 3
